@@ -9,8 +9,18 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
 from pathlib import Path
 from typing import List
+
+from dotenv import load_dotenv
+
+# python-dotenv package
+
+load_dotenv()
+
+
+env = load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "base",
+    "sku",
 ]
 
 MIDDLEWARE = [
@@ -75,8 +87,12 @@ WSGI_APPLICATION = "inmar.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DATABASE_NAME", default="inmar_db"),
+        "USER": os.getenv("DATABASE_USER", default="pg_user"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", default="secret"),
+        "HOST": os.getenv("DATABASE_HOST", default="localhost"),
+        "PORT": os.getenv("DATABASE_PORT", default="5432"),
     }
 }
 
