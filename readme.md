@@ -25,7 +25,6 @@ This Django project provides a REST API for managing meta-data related to locati
 1. **Clone the repository**:
     ```bash
     git clone https://github.com/AshishTI23/inmar-assignment.git
-    cd metadata-management-api
     ```
 
 2. **Create a virtual environment**:
