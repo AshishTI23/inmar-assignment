@@ -1,4 +1,4 @@
-# Meta-Data Management API
+# Stock Keeping Unit Management API
 
 ## Overview
 
