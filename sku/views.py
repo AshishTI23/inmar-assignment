@@ -126,9 +126,8 @@ class DepartmentsAPIView(APIView):
             SuccessResponse: A response containing the created Department instance.
             ErrorResponse: A response containing validation errors if the data is invalid.
         """
-        request_body = request.data
-        request_body["location"] = str(location_id)
-        serializer = DepartmentSerializer(data=request_body)
+        request.data["location"] = str(location_id)
+        serializer = DepartmentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return SuccessResponse(serializer.data, status=status.HTTP_201_CREATED)

@@ -59,13 +59,17 @@ This Django project provides a REST API for managing meta-data related to locati
     python manage.py migrate
     ```
 
-    - Create of Delete seed data:
+    - Create or delete seed data:
     ```bash
     python manage.py seed --type=add
     python manage.py seed --type=delete
     ```
 
-5. **Run the development server**:
+5. **Run unit tests**:
+    ```bash
+    python manage.py test
+
+6. **Run the development server**:
     ```bash
     python manage.py runserver
     ```
@@ -75,22 +79,22 @@ This Django project provides a REST API for managing meta-data related to locati
 ### Locations
 - **GET** `/api/v1/locations/` - List all locations.
 - **POST** `/api/v1/locations/` - Create a new location.
-- **PATCH, DELETE** `/api/v1/locations/<uuid:location_id>/` - Retrieve, update, or delete a specific location.
+- **PATCH, DELETE** `/api/v1/locations/<uuid:location_id>/` - Update, or delete a specific location.
 
 ### Departments
 - **GET** `/api/v1/locations/<uuid:location_id>/departments/` - List all departments at a specific location.
 - **POST** `/api/v1/locations/<uuid:location_id>/departments/` - Create a new Department.
-- **PATCH, DELETE** `/api/v1/departments/<uuid:department_id>/` - Retrieve, update, or delete a specific department.
+- **PATCH, DELETE** `/api/v1/departments/<uuid:department_id>/` - Update, or delete a specific department.
 
 ### Categories
 - **GET** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/` - List all categories within a specific department at a given location.
 - **POST** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/` - Create a new Category.
-- **PATCH, DELETE** `/api/v1/categories/<uuid:category_id>/` - Retrieve, update, or delete a specific category.
+- **PATCH, DELETE** `/api/v1/categories/<uuid:category_id>/` - Update, or delete a specific category.
 
 ### Subcategories
 - **GET** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/<uuid:category_id>/sub_categories/` - List all subcategories within a specific category in a given department and location.
 - **POST** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/<uuid:category_id>/sub_categories/` - Create a new SubCategory.
-- **PATCH, DELETE** `/api/v1/subcategories/<uuid:subcategory_id>/` - Retrieve, update, or delete a specific subcategory.
+- **PATCH, DELETE** `/api/v1/subcategories/<uuid:subcategory_id>/` - Update, or delete a specific subcategory.
 
 ### SKUs
 - **GET** `/api/v1/skus/` - List all SKUs.

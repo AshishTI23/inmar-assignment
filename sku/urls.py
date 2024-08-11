@@ -17,7 +17,7 @@ urlpatterns = [
     ),
     # List all departments at a specific location by location UUID
     path(
-        "api/v1/locations/<uuid:department>/departments",
+        "api/v1/locations/<uuid:location_id>/departments",
         DepartmentsAPIView.as_view(),
         name="departments_at_location",
     ),
@@ -25,7 +25,7 @@ urlpatterns = [
     path(
         "api/v1/departments/<uuid:department_id>",
         DepartmentsAPIView.as_view(),
-        name="categories",
+        name="departments",
     ),
     # List all categories within a specific department at a given location
     path(
