@@ -1,6 +1,5 @@
 from django.http import Http404
 from django.http.response import JsonResponse
-from django.shortcuts import _get_queryset
 
 
 class SuccessResponse(JsonResponse):
