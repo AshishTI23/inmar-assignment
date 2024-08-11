@@ -68,22 +68,22 @@ This Django project provides a REST API for managing meta-data related to locati
 ### Locations
 - **GET** `/api/v1/locations/` - List all locations.
 - **POST** `/api/v1/locations/` - Create a new location.
-- **PUT, DELETE** `/api/v1/locations/<uuid:location_id>/` - Retrieve, update, or delete a specific location.
+- **PATCH, DELETE** `/api/v1/locations/<uuid:location_id>/` - Retrieve, update, or delete a specific location.
 
 ### Departments
 - **GET** `/api/v1/locations/<uuid:location_id>/departments/` - List all departments at a specific location.
 - **POST** `/api/v1/locations/<uuid:location_id>/departments/` - Create a new Department.
-- **PUT, DELETE** `/api/v1/departments/<uuid:department_id>/` - Retrieve, update, or delete a specific department.
+- **PATCH, DELETE** `/api/v1/departments/<uuid:department_id>/` - Retrieve, update, or delete a specific department.
 
 ### Categories
 - **GET** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/` - List all categories within a specific department at a given location.
 - **POST** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/` - Create a new Category.
-- **PUT, DELETE** `/api/v1/categories/<uuid:category_id>/` - Retrieve, update, or delete a specific category.
+- **PATCH, DELETE** `/api/v1/categories/<uuid:category_id>/` - Retrieve, update, or delete a specific category.
 
 ### Subcategories
 - **GET** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/<uuid:category_id>/sub_categories/` - List all subcategories within a specific category in a given department and location.
 - **POST** `/api/v1/locations/<uuid:location_id>/departments/<uuid:department_id>/categories/<uuid:category_id>/sub_categories/` - Create a new SubCategory.
-- **PUT, DELETE** `/api/v1/subcategories/<uuid:subcategory_id>/` - Retrieve, update, or delete a specific subcategory.
+- **PATCH, DELETE** `/api/v1/subcategories/<uuid:subcategory_id>/` - Retrieve, update, or delete a specific subcategory.
 
 ### SKUs
 - **GET** `/api/v1/skus/` - List all SKUs.
