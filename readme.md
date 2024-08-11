@@ -7,10 +7,11 @@ This Django project provides a REST API for managing meta-data related to locati
 ## Features
 
 - **CRUD Operations**: Supports Create, Fetch, Update, and Delete operations for locations, departments, categories, subcategories, and SKUs.
-- **UUID-based Identification**: Each entity is identified by a universally unique identifier (UUID).
+- [**UUID-based Identification**](https://github.com/AshishTI23/inmar-assignment/blob/main/base/models.py): Each entity is identified by a universally unique identifier (UUID).
 - **Hierarchical Data Representation**: The API supports nested resource queries, such as retrieving all categories within a department at a specific location.
-- **Seed Data**: This functionality is achieved by implementing a management command that accepts arguments to specify the type of operations. The command handles both seeding and deletion processes in a structured manner, ensuring accurate and efficient data management..
-
+- [**Seed Data**](https://github.com/AshishTI23/inmar-assignment/blob/main/sku/management/commands/seed.py): This functionality is achieved by implementing a management command that accepts arguments to specify the type of operations. The command handles both seeding and deletion processes in a structured manner, ensuring accurate and efficient data management.
+- [**Pre-Commit Integration**](https://github.com/AshishTI23/inmar-assignment/blob/main/.pre-commit-config.yaml): By integrating pre-commit into development process, Devs can significantly enhance code quality, streamline your workflow, and ensure a more consistent and maintainable codebase.
+- [**Custome Response format**](https://github.com/AshishTI23/inmar-assignment/blob/main/base/http.py): This implementation ensures consistency in the response body structure across all APIs.
 ## Setup Instructions
 
 ### Prerequisites
