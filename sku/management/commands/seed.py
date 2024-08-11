@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from sku.models import Category
 from sku.models import Department
@@ -181,6 +182,7 @@ class Command(BaseCommand):
             self.delete_metadata_records()
             self.delete_stock_keeping_units()
 
+    @transaction.atomic
     def create_metadata_records(self):
         for row in META_DATA_SEED:
             location, _ = Location.objects.get_or_create(name=row[0])
@@ -195,6 +197,7 @@ class Command(BaseCommand):
 
             SubCategory.objects.get_or_create(name=row[3], category=category)
 
+    @transaction.atomic
     def create_stock_keeping_units(self):
         for sku_row in SKU_DATA_SEED:
             (
@@ -221,11 +224,13 @@ class Command(BaseCommand):
                 sku_code=code, name=sku_name, subcategory=subcategory
             )
 
+    @transaction.atomic
     def delete_metadata_records(self):
         Location.objects.all().delete()
         Department.objects.all().delete()
         Category.objects.all().delete()
         SubCategory.objects.all().delete()
 
+    @transaction.atomic
     def delete_stock_keeping_units(self):
         StockKeepingUnit.objects.all().delete()
