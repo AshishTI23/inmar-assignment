@@ -9,6 +9,7 @@ This Django project provides a REST API for managing meta-data related to locati
 - **CRUD Operations**: Supports Create, Fetch, Update, and Delete operations for locations, departments, categories, subcategories, and SKUs.
 - **UUID-based Identification**: Each entity is identified by a universally unique identifier (UUID).
 - **Hierarchical Data Representation**: The API supports nested resource queries, such as retrieving all categories within a department at a specific location.
+- **Seed Data**: This functionality is achieved by implementing a management command that accepts arguments to specify the type of operations. The command handles both seeding and deletion processes in a structured manner, ensuring accurate and efficient data management..
 
 ## Setup Instructions
 
@@ -16,7 +17,7 @@ This Django project provides a REST API for managing meta-data related to locati
 
 - Python 3.11.6+
 - Django 5.0+
-- PostgreSQL (or any preferred relational database)
+- PostgreSQL
 
 ### Installation
 
@@ -56,6 +57,12 @@ This Django project provides a REST API for managing meta-data related to locati
     - Apply migrations:
     ```bash
     python manage.py migrate
+    ```
+
+    - Create of Delete seed data:
+    ```bash
+    python manage.py seed --type=add
+    python manage.py seed --type=delete
     ```
 
 5. **Run the development server**:
