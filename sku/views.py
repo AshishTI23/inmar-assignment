@@ -1,11 +1,10 @@
-import uuid
-
 from rest_framework import status
 from rest_framework.views import APIView
 
 from base.generics import get_object_or_404
 from base.http import ErrorResponse
 from base.http import SuccessResponse
+from base.pagination import CustomPagination
 from sku.models import Category
 from sku.models import Department
 from sku.models import Location
@@ -366,5 +365,7 @@ class StockKeepingUnitAPIView(APIView):
                 "location"
             ),
         )
-        serializer = StockKeepingUnitSerializer(skus, many=True)
-        return SuccessResponse(serializer.data)
+        paginator = CustomPagination()
+        paginated_queryset = paginator.paginate_queryset(skus, request)
+        serializer = StockKeepingUnitSerializer(paginated_queryset, many=True)
+        return paginator.get_paginated_response(serializer.data)
