@@ -15,17 +15,17 @@ jobs:
       matrix:
         python-version: [3.11]
     services:
-      postgres:
-        image: postgres:latest
+      db:
+        image: postgres
         env:
-          DATABASE_NAME: postgres
+          DATABASE_NAME: github_actions
           DATABASE_USER: postgres
           DATABASE_PASSWORD: postgres
-          DATABASE_HOST: db
+          DATABASE_HOST: '127.0.0.1'
         ports:
           - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
 
     steps:
     - uses: actions/checkout@v4
