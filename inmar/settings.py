@@ -89,9 +89,9 @@ WSGI_APPLICATION = "inmar.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DATABASE_NAME", default="inmar_db"),
-        "USER": os.getenv("DATABASE_USER", default="pg_user"),
-        "PASSWORD": os.getenv("DATABASE_PASSWORD", default="secret"),
+        "NAME": os.getenv("DATABASE_NAME", default="postgres"),
+        "USER": os.getenv("DATABASE_USER", default="postgres"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", default="postgres"),
         "HOST": os.getenv("DATABASE_HOST", default="localhost"),
         "PORT": os.getenv("DATABASE_PORT", default="5432"),
     }
